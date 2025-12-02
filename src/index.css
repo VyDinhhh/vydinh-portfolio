@@ -12,12 +12,13 @@
 
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-subtle: pulse-subtle 4s ease-in-out infinite;
-  --animate-fade-in: fade-in 0/7 ease-out forwards;
+  --animate-fade-in: fade-in 0.7s ease-out forwards;
   --animate-fade-in-delay-1: fade-in 0.7s ease-out 0.2s forwards;
   --animate-fade-in-delay-2: fade-in 0.7s ease-out 0.4s forwards;
   --animate-fade-in-delay-3: fade-in 0.7s ease-out 0.6s forwards;
   --animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards;
   --animate-meteor: meteor 5s linear infinite;
+  --animate-flowers: fall-flower 5s linear infinite;
 
   @keyframes float{
     100%{
@@ -51,23 +52,37 @@
   }
   @keyframes meteor {
     0%{
-      transform: rotate(215deg) translate(0);
+      transform: rotate(215deg) translateX(0);
       opacity: 1;
     }
     70%{
       opacity:1;  
     }
     100%{
-      transform: rotate(215deg) translate(0);
-      opacity: 1;
+      transform: rotate(215deg) translateX(-500px);
+      opacity: 0;
     }
   }
+
+  @keyframes fall-flower {
+  0% {
+    transform: translateY(-20vh) rotate(0deg); /* start above screen */
+    opacity: 1;
+  },
+  70%{
+      opacity:0.5;  
+    },
+  100% {
+    transform: translateY(140vh) rotate(360deg); /* fall below screen */
+    opacity: 0.2;
+  }
+}
 
 }
 
 @layer base {
   :root{
-    --background: 210 40% 98%;
+    /* --background: 210 40% 98%;
     --foreground: 222 47% 11%;
 
     --card: 0 0% 100%;
@@ -75,11 +90,22 @@
     --primary: 250 47% 60%;
     --primary-foreground: 210 40% 98%;
 
-    --border: 214 32% 91%;
+    --border: 214 32% 91%; */
+
+    --background: 330 100% 98%;       /* very soft pink */
+--foreground: 338 25% 20%;        /* dark pink text */
+
+--card: 0 0% 100%;                /* white card */
+
+--primary: 340 70% 70%;           /* main pink */
+--primary-foreground: 330 100% 98%; /* text on pink */
+
+--border: 340 40% 85%;            /* light pink border */
+
   }
 
   .dark{
-    --background: 222 47% 4%;
+    /* --background: 222 47% 4%;
 
     --foreground: 213 31% 91%;
 
@@ -88,7 +114,17 @@
     --primary: 250 65% 65%;
     --primary-foreground: 213 31% 91%;
 
-    --border: 217 33% 20%;
+    --border: 217 33% 20%; */
+
+    --background: 330 20% 10%;
+  --foreground: 330 40% 90%;
+
+  --card: 330 25% 15%;
+
+  --primary: 340 70% 70%;
+  --primary-foreground: 330 100% 98%;
+
+  --border: 330 20% 20%;
   }
 
   * {
@@ -168,3 +204,12 @@
   padding: 0;
   text-align: center;
 }
+
+@utility fall-flower{
+
+  @apply absolute ;
+  
+
+}
+
+
