@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 
+/*Temporary unused*/
 export const StarBackground = () => {
 
     const [stars, setStars] = useState([]);
